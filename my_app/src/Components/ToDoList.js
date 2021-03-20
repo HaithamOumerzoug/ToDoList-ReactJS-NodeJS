@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {onChangeCheck,deletelist} from '../actions/ToDoListeAction'
 import InputToDoList from './InputToDoList'
+import Textarea from './Textarea'
 import {updateList} from '../actions/ToDoListeAction'
 
 class ToDoList extends Component {
@@ -27,8 +28,7 @@ class ToDoList extends Component {
       localtitle:title,
       localdescription:description,
     })
-    this.show_hide
-()
+    this.show_hide()
   }
   onChange = e => this.setState({ [e.target.name]: e.target.value });
   onSubmit=(e)=>{
@@ -52,36 +52,37 @@ class ToDoList extends Component {
         const {_id,title,description,done}=this.props.list;
         const {localtitle,localdescription,errors}=this.state;
         return (
-            <div class="card text-left mb-4">
-              <div class="card-body">
-                
+            <div class="container">
                 {this.state.switch? 
-                  (<div>
-                    <h4 class="card-title" contentEditable={!this.state.switch}>{title}</h4>
-                    <p class="card-text" contentEditable={!this.state.switch}>{description}</p>
-                    <div className="d-flex mb-3 ">
-                      <input type="checkbox" className="float-left" style={{cursor:'pointer'}} defaultChecked={done} onChange={this.props.onChangeCheck.bind(this,_id)} name="done" id=""/>
+                  (
+                  <div class="card mb-3">
+                    <h5 class="card-header"contentEditable={!this.state.switch}>{title}</h5>
+                    <div class="card-body">
+                      <p class="card-text"contentEditable={!this.state.switch}>{description}</p>
+                      <div className="d-flex mb-3">
+                        <input type="checkbox" className="float-left ml-2" style={{cursor:'pointer'}} defaultChecked={done} onChange={this.props.onChangeCheck.bind(this,_id)} name="done" id=""/>
+                      </div>
+                      <button className="btn btn-danger float-left" onClick={this.props.deletelist.bind(this,_id)}>Delete this List</button>
+                      <button className="btn btn-warning float-right" onClick={this.changeSwitch.bind(this,_id,title,description)}>Update this List</button>
                     </div>
-                    <button className="btn btn-danger float-left" onClick={this.props.deletelist.bind(this,_id)}>Delete this List</button>
-                    <button className="btn btn-warning float-right" onClick={this.changeSwitch.bind(this,_id,title,description)}>Update this List</button>
-                  </div>
+                </div>
                   
                   ) :  
-                  (<div>
+                  (<div className="card mb-3">
+                    <div  className="col-sm-12 my-3"> 
                     <form onSubmit={this.onSubmit}>
                         <InputToDoList
+                            type="text"
                             label="Title"
                             name="localtitle"
                             placeholder="Enter Title"
                             onChange={this.onChange}
                             value={localtitle}
-                            contentEditable="true"
                             error={errors.title}
                         />
-                        <InputToDoList
+                        <Textarea
                             label="Description"
                             name="localdescription"
-                            contentEditable="true"
                             placeholder="Enter Description"
                             value={localdescription}
                             onChange={this.onChange}
@@ -90,12 +91,12 @@ class ToDoList extends Component {
                         <button className="btn btn-info float-right" type="submit" >Save</button>
                     </form>
                     <button className="btn btn-danger float-right mr-3" onClick={this.show_hide}>Cancel</button>
+                    </div>
                   </div>
                     
                   )
                 }
               </div>
-            </div>
         )
     }
 }

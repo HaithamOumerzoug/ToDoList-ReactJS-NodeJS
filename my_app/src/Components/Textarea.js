@@ -1,19 +1,19 @@
 import React from 'react'
 import classnames from 'classnames'
-const InputToDoList=( {
+const Textarea=( {
         label,
         name,
         value,
         onChange,
         placeholder,
         error,
-        type
+        rows,
+        cols,
         }) => {
         return (
           <div class="mb-3">
-            <label htmlFor={name} className="form-label">{label}</label>
-            <input 
-              type={type}
+            <label htmlFor={name} className="label-control">{label}</label>
+            <textarea 
               name={name}
               className={classnames('form-control form-control-lg', {
                 'is-invalid': error
@@ -21,14 +21,17 @@ const InputToDoList=( {
               onChange={onChange}
               placeholder={placeholder}
               defaultValue={value}
+              rows={rows} 
+              cols={cols}
             />
             {error && <div className="invalid-feedback">{error}</div>}
           </div>
         );
     };
 
-InputToDoList.defaultProps ={
-  type:"text"
-
+Textarea.defaultProps ={
+  contentEditable:"false",
+  rows:"4", 
+  cols:"50"
 }
-export default InputToDoList;
+export default Textarea;

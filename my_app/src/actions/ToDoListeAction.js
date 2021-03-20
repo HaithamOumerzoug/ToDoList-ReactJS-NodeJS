@@ -27,6 +27,7 @@ export const addListe=(newListe)=>dispatch=>{
         })
 }
 export const onChangeCheck=(id,done)=>dispatch=>{
+    
     fetch(`/changecheck/${id}`,{
         method:'PUT',
         headers: {

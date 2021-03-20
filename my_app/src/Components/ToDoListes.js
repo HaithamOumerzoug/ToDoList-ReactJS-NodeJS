@@ -13,7 +13,7 @@ class ToDoListes extends Component {
             <React.Fragment>
                 <div className="container">
                     {listes.map(list => (
-                        <div className="col-md-10">
+                        <div className="col-md-12">
                             <ToDoList key={list._id} list={list} />
                         </div>
                     ))}

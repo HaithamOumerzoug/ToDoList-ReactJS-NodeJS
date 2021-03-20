@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import InputToDoList from './InputToDoList'
 import {connect} from 'react-redux'
 import {addListe} from '../actions/ToDoListeAction'
+import Textarea from './Textarea'
 
 class AddToDoList extends Component {
     state={
@@ -59,10 +60,9 @@ class AddToDoList extends Component {
                                 contentEditable="true"
                                 error={errors.title}
                             />
-                            <InputToDoList
+                            <Textarea
                                 label="Description"
                                 name="description"
-                                contentEditable="true"
                                 placeholder="Enter Description"
                                 value={description}
                                 onChange={this.onChange}
