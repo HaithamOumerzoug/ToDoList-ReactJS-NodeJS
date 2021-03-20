@@ -70,27 +70,27 @@ class ToDoList extends Component {
                   ) :  
                   (<div className="card mb-3">
                     <div  className="col-sm-12 my-3"> 
-                    <form onSubmit={this.onSubmit}>
-                        <InputToDoList
-                            type="text"
-                            label="Title"
-                            name="localtitle"
-                            placeholder="Enter Title"
-                            onChange={this.onChange}
-                            value={localtitle}
-                            error={errors.title}
-                        />
-                        <Textarea
-                            label="Description"
-                            name="localdescription"
-                            placeholder="Enter Description"
-                            value={localdescription}
-                            onChange={this.onChange}
-                            error={errors.description}
-                        />
-                        <button className="btn btn-info float-right" type="submit" >Save</button>
-                    </form>
-                    <button className="btn btn-danger float-right mr-3" onClick={this.show_hide}>Cancel</button>
+                      <form onSubmit={this.onSubmit}>
+                          <InputToDoList
+                              type="text"
+                              label="Title"
+                              name="localtitle"
+                              placeholder="Enter Title"
+                              onChange={this.onChange}
+                              value={localtitle}
+                              error={errors.title}
+                          />
+                          <Textarea
+                              label="Description"
+                              name="localdescription"
+                              placeholder="Enter Description"
+                              value={localdescription}
+                              onChange={this.onChange}
+                              error={errors.description}
+                          />
+                          <button className="btn btn-info float-right" type="submit" >Save</button>
+                      </form>
+                      <button className="btn btn-danger float-right mr-3" onClick={this.show_hide}>Cancel</button>
                     </div>
                   </div>
                     

@@ -47,33 +47,36 @@ class AddToDoList extends Component {
     render() {
         const { title, description,done, errors } = this.state;
         return (
-            <div className="card mb-3">
+            <div className="container mb-3">
                 {(this.state.show==true ? 
-                    <div>
-                        <form onSubmit={this.onSubmit}>
-                            <InputToDoList
-                                label="Title"
-                                name="title"
-                                placeholder="Enter Title"
-                                onChange={this.onChange}
-                                value={title}
-                                contentEditable="true"
-                                error={errors.title}
-                            />
-                            <Textarea
-                                label="Description"
-                                name="description"
-                                placeholder="Enter Description"
-                                value={description}
-                                onChange={this.onChange}
-                                //error={errors.description}
-                            />
-                            <button type="submit" className="btn btn-success ml-5 float-left">Add</button>
-                        </form>
-                        <button className="btn btn-danger float-right mr-5" onClick={this.show_hide}>Cancel</button>
+                    <div className="card mb-3">
+                        <div className="col-sm-12 my-3">
+                            <form onSubmit={this.onSubmit}>
+                                <InputToDoList
+                                    label="Title"
+                                    name="title"
+                                    placeholder="Enter Title"
+                                    onChange={this.onChange}
+                                    value={title}
+                                    contentEditable="true"
+                                    error={errors.title}
+                                />
+                                <Textarea
+                                    label="Description"
+                                    name="description"
+                                    placeholder="Enter Description"
+                                    value={description}
+                                    onChange={this.onChange}
+                                    //error={errors.description}
+                                />
+                                <button type="submit" className="btn btn-success float-right">Add</button>
+                            </form>
+                            <button className="btn btn-warning float-right mr-3" onClick={this.show_hide}>Cancel</button>
+                        </div>
                     </div>
-                    
-                :<input type="button" onClick={this.show_hide} value="Add more liste"/>)}
+                : <div className="d-flex justify-content-end">
+                    <input type="button" onClick={this.show_hide} className="btn btn-primary " value="Add more liste"/>
+                </div>)}
         </div>
 
         )

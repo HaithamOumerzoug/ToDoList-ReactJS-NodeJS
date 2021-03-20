@@ -11,7 +11,7 @@ const InputToDoList=( {
         }) => {
         return (
           <div class="mb-3">
-            <label htmlFor={name} className="form-label">{label}</label>
+            <label htmlFor={name} className="label-control">{label}</label>
             <input 
               type={type}
               name={name}
