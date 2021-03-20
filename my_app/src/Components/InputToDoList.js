@@ -27,4 +27,8 @@ const InputToDoList=( {
           </div>
         );
     };
+
+InputToDoList.defaultProps ={
+  contentEditable:"false"
+}
 export default InputToDoList;

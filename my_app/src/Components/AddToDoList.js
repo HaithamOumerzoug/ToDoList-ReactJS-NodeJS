@@ -19,7 +19,7 @@ class AddToDoList extends Component {
             show:!this.state.show
         });
     }
-    onChange = e => this.setState({ [e.target.name]: e.target.value });//e.target.name<=>title ou description
+    onChange = e => this.setState({ [e.target.name]: e.target.value });//e.target.name<=>title or description
     onSubmit=(e)=>{
         e.preventDefault();
         const { title, description,done} = this.state;
@@ -33,7 +33,6 @@ class AddToDoList extends Component {
             description,
             done
         }
-        console.log(newListe)
         this.props.addListe(newListe);
         this.setState({
             title:'',
@@ -48,16 +47,6 @@ class AddToDoList extends Component {
         const { title, description,done, errors } = this.state;
         return (
             <div className="card mb-3">
-                {/* <h4>
-                    <i className="fas fa-plus" 
-                        onClick={this.show_hide}
-                        style={{
-                            cursor: 'pointer',
-                            float: 'right',
-                            color: 'blue',
-                    }}></i>
-                </h4> */}
-                
                 {(this.state.show==true ? 
                     <div>
                         <form onSubmit={this.onSubmit}>
