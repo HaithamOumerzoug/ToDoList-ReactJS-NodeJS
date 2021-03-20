@@ -11,7 +11,10 @@ const Header=props=>{
         <div>
           <ul className="navbar-nav mr-auto">
             <li className="nav-item">
-              <a href="/" className="nav-link">Home</a>
+              <a 
+                href="https://github.com/HaithamOumerzoug/ToDoList-ReactJS-NodeJS" 
+                className="nav-link">GitHub
+              </a>
             </li>
           </ul>
         </div>
