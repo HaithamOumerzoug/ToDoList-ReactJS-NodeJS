@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser=require('body-parser')
 require('dotenv').config();
 const app=express();
+const helmet=require('helmet')
 const routefile = require('./routes/web')
 const expressValidator = require('express-validator');
 
@@ -17,10 +18,14 @@ mongoose.connect(
 .then(console.log("Connection DATABASE OK ..."))
 .catch((err)=>console.log("Connection Feiled !"))
 
+//Middlewares
 app.use(express.json());
+app.use(helmet());
 app.use(expressValidator());
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json()); 
+app.use(bodyParser.json());
+
+//Routes
 app.use('/',routefile);
 
 
