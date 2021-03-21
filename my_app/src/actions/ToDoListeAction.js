@@ -19,6 +19,7 @@ export const addListe=(newListe)=>dispatch=>{
         body:newListe_json   
     }).then(res=>res.json())
         .then(json => {
+            if(json===undefined){return null}
             dispatch({
                 type:"ADD_LIST",
                 data:json

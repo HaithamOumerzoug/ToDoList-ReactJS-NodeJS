@@ -10,8 +10,6 @@ class AddToDoList extends Component {
         description:'',
         done:false,
         errors:{
-            title:'',
-            description:'',
           },
         show:false,
     };
@@ -24,10 +22,17 @@ class AddToDoList extends Component {
     onSubmit=(e)=>{
         e.preventDefault();
         const { title, description,done} = this.state;
-        if(title===''){
+        if(title===""){
             this.setState({
                 errors:{title:"Title is required!"}
             })
+            return
+        }
+        if(description===""){
+            this.setState({
+                errors:{description:"Desciption is required!"}
+            })
+            return
         }
         const newListe={
             title,
@@ -45,10 +50,10 @@ class AddToDoList extends Component {
         
     }
     render() {
-        const { title, description,done, errors } = this.state;
+        const { title, description, errors } = this.state;
         return (
             <div className="container mb-3">
-                {(this.state.show==true ? 
+                {(this.state.show ==true ? 
                     <div className="card mb-3">
                         <div className="col-sm-12 my-3">
                             <form onSubmit={this.onSubmit}>
@@ -67,7 +72,7 @@ class AddToDoList extends Component {
                                     placeholder="Enter Description"
                                     value={description}
                                     onChange={this.onChange}
-                                    //error={errors.description}
+                                    error={errors.description}
                                 />
                                 <button type="submit" className="btn btn-success float-right">Add</button>
                             </form>

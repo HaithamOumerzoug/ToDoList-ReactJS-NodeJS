@@ -1,7 +1,7 @@
 const initState={
     listes:[],
 };
-export default function(state=initState,action){
+const ToDoListReducer=(state=initState,action)=>{
     switch (action.type) {
         case "GET_ALL_LISTS":
             return({
@@ -32,3 +32,4 @@ export default function(state=initState,action){
             return state;
     }
 }
+export default ToDoListReducer;
