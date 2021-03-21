@@ -2,8 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser=require('body-parser')
 require('dotenv').config();
-const app=express()
+const app=express();
 const routefile = require('./routes/web')
+const expressValidator = require('express-validator');
 
 //Connection db
 mongoose.connect(
@@ -16,6 +17,8 @@ mongoose.connect(
 .then(console.log("Connection DATABASE OK ..."))
 .catch((err)=>console.log("Connection Feiled !"))
 
+app.use(express.json());
+app.use(expressValidator());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json()); 
 app.use('/',routefile);

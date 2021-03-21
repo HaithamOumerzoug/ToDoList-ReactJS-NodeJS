@@ -5,11 +5,11 @@ const ToDoShema=mongoose.Schema({
         type:String,
         required:true,
         minlength:5,
-        maxlength:200
+        maxlength:20
     },
     description:{
         type:String,
-        required:false,
+        required:true,
         minlength:3,
         maxlength:500
     },
