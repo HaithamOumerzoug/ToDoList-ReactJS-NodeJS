@@ -12,8 +12,6 @@ class ToDoList extends Component {
     localtitle:'',
     localdescription:'',
     errors:{
-      title:'',
-      description:'',
     },
     switch:true
   }
@@ -34,6 +32,18 @@ class ToDoList extends Component {
   onSubmit=(e)=>{
     e.preventDefault();
     const {_id, localtitle, localdescription} = this.state;
+    if(localtitle===""){
+      this.setState({
+          errors:{title:"Title is required!"}
+      })
+      return
+  }
+  if(localdescription===""){
+      this.setState({
+          errors:{description:"Desciption is required!"}
+      })
+      return
+  }
     if(this.props.title===''){
         this.setState({
             errors:{title:"Title is required!"}
@@ -45,8 +55,7 @@ class ToDoList extends Component {
         description:localdescription,
     }
     this.props.updateList(newListe)
-    this.show_hide
-()
+    this.show_hide()
   }
     render() {
         const {_id,title,description,done}=this.props.list;

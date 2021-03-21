@@ -24,7 +24,6 @@ exports.addList=async (req,res)=>{
     try {
         const list =await todolist.save();
         res.json(list);
-        res.redirect('/');
     } catch (err) {
         res.send('Les informations sont invalide').status(400);
     }

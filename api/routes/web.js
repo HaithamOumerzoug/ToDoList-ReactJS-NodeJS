@@ -10,7 +10,7 @@ router.get('/:id',todolistController.getList)
 //router.get('/addlist')
 router.post('/addlist',listValidator.ToDolistValidator,todolistController.addList)
 router.delete('/:id',todolistController.deleteList)
-router.put('/changecheck/:id',todolistController.changecheck)
+router.put('/changecheck/:id',listValidator.ToDolistValidator,todolistController.changecheck)
 router.put('/:id',todolistController.updateList)
 
 module.exports=router;
