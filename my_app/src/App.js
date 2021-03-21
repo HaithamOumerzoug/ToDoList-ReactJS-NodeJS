@@ -1,11 +1,13 @@
-import Header from './Components/Header'
+import Header from './Components/layout/Header'
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import AddToDoList from './Components/AddToDoList'
 import {Provider} from 'react-redux'
 import ToDoListStore from './ToDoListStore'
 import ToDoListes from './Components/ToDoListes'
+
 function App() {
+  
   return (
     <Provider store={ToDoListStore}>
        <div className="App">

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {onChangeCheck,deletelist} from '../actions/ToDoListeAction'
-import InputToDoList from './InputToDoList'
-import Textarea from './Textarea'
+import InputToDoList from './layout/InputToDoList'
+import Textarea from './layout/Textarea'
 import {updateList} from '../actions/ToDoListeAction'
 
 class ToDoList extends Component {
@@ -90,7 +90,7 @@ class ToDoList extends Component {
                           />
                           <button className="btn btn-info float-right" type="submit" >Save</button>
                       </form>
-                      <button className="btn btn-danger float-right mr-3" onClick={this.show_hide}>Cancel</button>
+                    <button className="btn btn-danger float-right mr-3" onClick={this.show_hide}>Cancel</button>
                     </div>
                   </div>
                     

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"nodemon index.js",
-    "front":"cd my_app && npm start",
+    "dev": "nodemon index.js",
+    "front": "cd my_app && npm start",
     "start": "concurrently \"npm run dev\"\"npm run front\""
   },
   "keywords": [],

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import InputToDoList from './InputToDoList'
+import InputToDoList from './layout/InputToDoList'
 import {connect} from 'react-redux'
 import {addListe} from '../actions/ToDoListeAction'
-import Textarea from './Textarea'
+import Textarea from './layout/Textarea'
 
 class AddToDoList extends Component {
     state={

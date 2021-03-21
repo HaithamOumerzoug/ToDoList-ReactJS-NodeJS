@@ -1,4 +1,3 @@
-
 export const getListes=()=>dispatch=>{
 
     fetch('/alllists').then(res =>res.json())
@@ -27,7 +26,7 @@ export const addListe=(newListe)=>dispatch=>{
         })
 }
 export const onChangeCheck=(id,done)=>dispatch=>{
-    
+
     fetch(`/changecheck/${id}`,{
         method:'PUT',
         headers: {
