@@ -4,7 +4,7 @@
 <p align="center">
     <img alt="" src="my_app/public/mongodb.png" href="" width="50" height="50">
     <img alt="" src="my_app/public/logo192.png" href="" style="margin-right:10px" width="50" height="50">
-    <img alt="" src="my_app/public/NodeJS.png" href="" width="50" height="50">
+    <img alt="" src="my_app/public/nodeJS.png" href="" width="50" height="50">
     
 </p>
 
