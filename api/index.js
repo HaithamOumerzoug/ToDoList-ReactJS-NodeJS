@@ -1,10 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser=require('body-parser')
+const bodyParser=require('body-parser');
 require('dotenv').config();
 const app=express();
-const helmet=require('helmet')
-const routefile = require('./routes/web')
+const helmet=require('helmet');
+const morgan = require('morgan');
+const routefile = require('./routes/web');
 const expressValidator = require('express-validator');
 
 //Connection db
@@ -21,6 +22,7 @@ mongoose.connect(
 //Middlewares
 app.use(express.json());
 app.use(helmet());
+app.use(morgan('tiny'));
 app.use(expressValidator());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
