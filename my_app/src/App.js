@@ -23,8 +23,7 @@ function App() {
           <ToDoListes/>
         </div>
       </div>
-    </Provider>
-    
+    </Provider> 
   );
 }
 

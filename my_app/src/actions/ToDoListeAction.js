@@ -1,3 +1,4 @@
+//Get all ToDo lists
 export const getListes=()=>dispatch=>{
 
     fetch('/alllists').then(res =>res.json())
@@ -8,6 +9,8 @@ export const getListes=()=>dispatch=>{
         })
     })
 }
+
+//Add ToDo List
 export const addListe=(newListe)=>dispatch=>{
     const newListe_json = JSON.stringify(newListe)
 
@@ -26,7 +29,9 @@ export const addListe=(newListe)=>dispatch=>{
             })
         })
 }
-export const onChangeCheck=(id,done)=>dispatch=>{
+
+//Make the list done
+export const onChangeCheck=(id)=>dispatch=>{
 
     fetch(`/changecheck/${id}`,{
         method:'PUT',
@@ -41,6 +46,8 @@ export const onChangeCheck=(id,done)=>dispatch=>{
             })
         })
 }
+
+//Update ToDo list
 export const updateList=(list)=>dispatch=>{
     const newListe_json = JSON.stringify(list)
     const id = list._id;
@@ -58,6 +65,8 @@ export const updateList=(list)=>dispatch=>{
             })
         })
 }
+
+//Delete ToDo list by ID
 export const deletelist=(id)=>dispatch=>{
     fetch(`/${id}`,{
         method:'DELETE',

@@ -53,7 +53,7 @@ class AddToDoList extends Component {
         const { title, description, errors } = this.state;
         return (
             <div className="container mb-3">
-                {(this.state.show ==true ? 
+                {(this.state.show === true ? 
                     <div className="card mb-3">
                         <div className="col-sm-12 my-3">
                             <form onSubmit={this.onSubmit}>
