@@ -1,9 +1,11 @@
 import React from 'react'
-const Footer =()=>{
+
+const Footer =(props)=>{
+    const branding = props.branding;
     return (
         <div class="card text-center text-white bg-dark mt-5">
             <div class="card-header">
-                <a href="/" className="text-decoration-none display-5 font-weight-bold" style={{color:'white'}}>ToDoList</a>
+                <a href="/" className="text-decoration-none display-5 font-weight-bold" style={{color:'white'}}>{branding}</a>
             </div>
             <div class="card-body">
                 <p class="card-text">Created by <a className="text-decoration-none" href="https://haitham-oumerzoug.com/">Haitham OUMERZOUG</a></p>
@@ -14,5 +16,9 @@ const Footer =()=>{
         </div>
     )
 }
+
+Footer.defaultProps = {
+    branding: 'MyApp'
+  };
 
 export default Footer;

@@ -23,7 +23,7 @@ const Header=props=>{
     )
 }
 Header.defaultProps = {
-    branding: 'ToDoList'
+    branding: 'MyApp'
   };
   
 

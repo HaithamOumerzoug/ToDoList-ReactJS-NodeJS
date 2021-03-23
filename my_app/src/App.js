@@ -22,7 +22,7 @@ function App() {
           <AddToDoList/>
           <ToDoListes/>
         </div>
-        <Footer/>
+        <Footer branding="ToDoList"/>
       </div>
     </Provider> 
   );
