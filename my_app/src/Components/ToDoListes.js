@@ -14,7 +14,7 @@ class ToDoListes extends Component {
                 <div className="container">
                     {listes.map(list => (
                         <div className="col-md-12">
-                            <a href="#" className="text-decoration-none">
+                            <a href="#show" className="text-decoration-none">
                                 <ToDoList key={list._id} list={list} />
                             </a>
                            
