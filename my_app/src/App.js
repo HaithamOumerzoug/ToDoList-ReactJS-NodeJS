@@ -5,7 +5,7 @@ import AddToDoList from './Components/AddToDoList'
 import {Provider} from 'react-redux'
 import ToDoListStore from './ToDoListStore'
 import ToDoListes from './Components/ToDoListes'
-
+import Footer from './Components/layout/Footer'
 
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
           <AddToDoList/>
           <ToDoListes/>
         </div>
+        <Footer/>
       </div>
     </Provider> 
   );
