@@ -4,6 +4,7 @@ import {onChangeCheck,deletelist} from '../actions/ToDoListeAction'
 import InputToDoList from './layout/InputToDoList'
 import Textarea from './layout/Textarea'
 import {updateList} from '../actions/ToDoListeAction'
+import ModalApp from './ModalApp'
 
 class ToDoList extends Component {
   
@@ -61,6 +62,7 @@ class ToDoList extends Component {
   render() {
     const {_id,title,description,done}=this.props.list;
     const {localtitle,localdescription,errors}=this.state;
+
     return (
         <div class="container">
           {this.state.switch? 
@@ -73,7 +75,8 @@ class ToDoList extends Component {
                     <input type="checkbox" className="float-left ml-2" style={{cursor:'pointer'}} defaultChecked={done} onChange={this.props.onChangeCheck.bind(this,_id)} name="done" id=""/>
                   </div>
                   <button className="btn btn-danger float-left" onClick={this.props.deletelist.bind(this,_id)}>Delete this List</button>
-                  <button className="btn btn-warning float-right" onClick={this.changeSwitch.bind(this,_id,title,description)}>Update this List</button>
+                  <button className="btn btn-warning float-right" onClick={this.changeSwitch.bind(this,_id,title,description)}>Edit this List</button>
+                  {/* <ModalApp list={this.props.list}/> */}
                 </div>
               </div>
               
