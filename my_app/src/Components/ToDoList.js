@@ -12,11 +12,11 @@ class ToDoList extends Component {
     localdescription:'',
     errors:{
     },
-    switch:true
+    switch:false
   }
-  show_hide=()=>{
+  vide_errros=()=>{
     this.setState({
-      switch:!this.state.switch
+      errors:{}
     })
   }
   changeSwitch=(_id,title,description)=>{
@@ -29,24 +29,19 @@ class ToDoList extends Component {
   onChange = e => this.setState({ [e.target.name]: e.target.value });
   onSubmit=(e)=>{
     e.preventDefault();
-    console.log("ok")
     const {_id, localtitle, localdescription} = this.state;
     if(localtitle===""){
       this.setState({
           errors:{title:"Title is required!"}
       })
+      
       return
-  }
-  if(localdescription===""){
-      this.setState({
-          errors:{description:"Desciption is required!"}
-      })
-      return
-  }
-    if(this.props.title===''){
+    }
+    if(localdescription===""){
         this.setState({
-            errors:{title:"Title is required!"}
+            errors:{description:"Desciption is required!"}
         })
+        return
     }
     const newListe={
         _id,
@@ -54,7 +49,8 @@ class ToDoList extends Component {
         description:localdescription,
     }
     this.props.updateList(newListe)
-    this.show_hide()
+    this.vide_errros()
+    
   }
 
   render() {
@@ -70,8 +66,12 @@ class ToDoList extends Component {
                 <input type="checkbox" className="float-left ml-2" style={{cursor:'pointer'}} defaultChecked={done} onChange={this.props.onChangeCheck.bind(this,_id)} name="done" id=""/>
               </div>
               <button className="btn btn-danger float-left" onClick={this.props.deletelist.bind(this,_id)}>Delete this List</button>
-              {/* <button className="btn btn-warning float-right" onClick={this.changeSwitch.bind(this,_id,title,description)}>Edit this List</button> */}
-              <ModalApp  Switch={this.changeSwitch.bind(this,_id,title,description)} list={this.props.list} state={this.state} onSubmit={this.onSubmit} onChange={this.onChange}/>
+              <ModalApp 
+                Switch={this.changeSwitch.bind(this,_id,title,description)} 
+                list={this.props.list} state={this.state} 
+                onSubmit={this.onSubmit} 
+                onChange={this.onChange}
+                />
             </div>
           </div> 
         </div>
