@@ -4,10 +4,9 @@ import InputToDoList from '../layout/InputToDoList'
 import Textarea from '../layout/Textarea'
 
 export default function ModalEdit(props) {
-    const {_id,title,description,done}=props.list;
     const {localtitle,localdescription,errors}=props.state;
     
-    const CheckandSave=()=>Object.keys(errors).length==0? props.onHide() : null
+    const CheckandSave=()=>Object.keys(errors).length===0? props.onHide() : null
     return (
         <Modal
             {...props}
@@ -39,8 +38,8 @@ export default function ModalEdit(props) {
                 onChange={props.onChange}
                 error={errors.description}
             />
-            <button className="btn btn-info mr-3" type="submit" onClick={CheckandSave}>Save</button>
-            <Button onClick={props.onHide}>Close</Button>
+            <Button variant="info" className="mr-3" type="submit" onClick={CheckandSave}>Save</Button>
+            <Button variant="danger" onClick={props.onHide}>Close</Button>
           </form>
         </Modal.Body>
         <Modal.Footer>

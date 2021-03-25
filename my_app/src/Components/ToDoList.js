@@ -67,8 +67,8 @@ class ToDoList extends Component {
               </div>
               <button className="btn btn-danger float-left" onClick={this.props.deletelist.bind(this,_id)}>Delete this List</button>
               <ModalApp 
-                Switch={this.changeSwitch.bind(this,_id,title,description)} 
-                list={this.props.list} state={this.state} 
+                Switch={this.changeSwitch.bind(this,_id,title,description)}  
+                state={this.state} 
                 onSubmit={this.onSubmit} 
                 onChange={this.onChange}
                 />
