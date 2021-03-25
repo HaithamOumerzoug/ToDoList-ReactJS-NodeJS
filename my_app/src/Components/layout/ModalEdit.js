@@ -42,9 +42,6 @@ export default function ModalEdit(props) {
             <Button variant="danger" onClick={props.onHide}>Close</Button>
           </form>
         </Modal.Body>
-        <Modal.Footer>
-          
-        </Modal.Footer>
       </Modal>
     );
 }
