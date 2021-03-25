@@ -30,7 +30,6 @@ const Textarea=( {
     };
 
 Textarea.defaultProps ={
-  contentEditable:"false",
   rows:"4", 
   cols:"50"
 }
