@@ -6,7 +6,16 @@ import Textarea from '../layout/Textarea'
 export default function ModalEdit(props) {
     const {localtitle,localdescription,errors}=props.state;
     
-    const CheckandSave=()=>Object.keys(errors).length===0? props.onHide() : null
+    const CheckandSave=async (e)=>{
+      await props.onSubmit(e);
+      console.log(Object.keys(errors).length);
+      check_errors();
+    }
+    const check_errors=()=>{
+      if(Object.keys(errors).length===0) {
+        props.onHide(); 
+      }
+    }
     return (
         <Modal
             {...props}
@@ -20,7 +29,7 @@ export default function ModalEdit(props) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <form onSubmit={props.onSubmit}>
+          <form onSubmit={CheckandSave}>
             <InputToDoList
                 type="text"
                 label="Title"
@@ -38,7 +47,7 @@ export default function ModalEdit(props) {
                 onChange={props.onChange}
                 error={errors.description}
             />
-            <Button variant="info" className="mr-3" type="submit" onClick={CheckandSave}>Save</Button>
+            <Button variant="info" className="mr-3" type="submit">Save</Button>
             <Button variant="danger" onClick={props.onHide}>Close</Button>
           </form>
         </Modal.Body>
