@@ -6,15 +6,9 @@ import Textarea from '../layout/Textarea'
 export default function ModalEdit(props) {
     const {localtitle,localdescription,errors}=props.state;
     
-    const CheckandSave=async (e)=>{
-      await props.onSubmit(e);
-      console.log(Object.keys(errors).length);
-      check_errors();
-    }
-    const check_errors=()=>{
-      if(Object.keys(errors).length===0) {
-        props.onHide(); 
-      }
+    const CheckandSave=(e)=>{
+      props.onSubmit(e);
+      props.onHide(); 
     }
     return (
         <Modal

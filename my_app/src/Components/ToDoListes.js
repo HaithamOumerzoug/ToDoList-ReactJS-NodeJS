@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ToDoList from './ToDoList'
 import {connect} from 'react-redux'
 import {getListes} from '../actions/ToDoListeAction'
+
 class ToDoListes extends Component {
     componentDidMount(){
         this.props.getListes();
@@ -14,9 +15,9 @@ class ToDoListes extends Component {
                 <div className="container">
                     {listes.map(list => (
                         <div className="col-md-12">
-                            <a href="#show" className="text-decoration-none">
+                            {/* <a href="#show" className="text-decoration-none"> */}
                                 <ToDoList key={list._id} list={list} />
-                            </a>
+                            {/* </a> */}
                            
                         </div>
                     ))}
