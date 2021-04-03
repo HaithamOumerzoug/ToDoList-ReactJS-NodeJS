@@ -59,6 +59,7 @@ class ToDoList extends Component {
     this.vide_errros()
     
   }
+  //Notification function
   notify=(text,type)=>{
     new Noty({
       text,
@@ -72,6 +73,7 @@ class ToDoList extends Component {
     }).show();
     
   }
+  //On delete function
   onDeletelist=(id)=>{
     this.props.deletelist(id);
     this.notify("List deleted !","success");
