@@ -3,6 +3,11 @@ import {connect} from 'react-redux'
 import {onChangeCheck,deletelist} from '../actions/ToDoListeAction'
 import {updateList} from '../actions/ToDoListeAction'
 import ModalApp from './ModalApp'
+import Noty from 'noty';
+
+import "../../node_modules/noty/lib/themes/mint.css";  
+import "../../node_modules/noty/lib/noty.css";
+import "../../node_modules/noty/lib/themes/bootstrap-v4.css";  
 
 class ToDoList extends Component {
   
@@ -49,7 +54,23 @@ class ToDoList extends Component {
         description:localdescription,
     }
     this.props.updateList(newListe)
+    this.notify("List updated","warning");
+    
     this.vide_errros()
+    
+  }
+  notify=(text,type)=>{
+    new Noty({
+      text: text,
+      animation: {
+          open: 'animated noty_effects_open', // Animate.css class names
+          close: 'animated noty_effects_close' // Animate.css class names
+      },
+      timeout:400,
+      layout:'topRight',
+      type:type
+      
+    }).show();
     
   }
 
