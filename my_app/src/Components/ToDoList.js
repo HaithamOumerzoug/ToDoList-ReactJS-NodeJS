@@ -54,13 +54,12 @@ class ToDoList extends Component {
         description:localdescription,
     }
     this.props.updateList(newListe)
-    this.notify("List updated","warning");
+    this.notify("List updated !","warning");
     
     this.vide_errros()
     
   }
   notify=(text,type)=>{
-    console.log("ok")
     new Noty({
       text,
       animation: {
@@ -72,6 +71,10 @@ class ToDoList extends Component {
       type
     }).show();
     
+  }
+  onDeletelist=(id)=>{
+    this.props.deletelist(id);
+    this.notify("List deleted !","success");
   }
 
   render() {
@@ -86,7 +89,7 @@ class ToDoList extends Component {
               <div className="d-flex mb-3">
                 <input type="checkbox" className="float-left ml-2" style={{cursor:'pointer'}} defaultChecked={done} onChange={this.props.onChangeCheck.bind(this,_id)} name="done" id=""/>
               </div>
-              <button className="btn btn-danger float-left" onClick={this.props.deletelist.bind(this,_id)}>Delete this List</button>
+              <button className="btn btn-danger float-left" onClick={this.onDeletelist.bind(this,_id)}>Delete this List</button>
               <ModalApp 
                 Switch={this.changeSwitch.bind(this,_id,title,description)}  
                 state={this.state} 
