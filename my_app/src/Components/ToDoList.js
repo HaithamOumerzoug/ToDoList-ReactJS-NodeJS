@@ -60,16 +60,16 @@ class ToDoList extends Component {
     
   }
   notify=(text,type)=>{
+    console.log("ok")
     new Noty({
-      text: text,
+      text,
       animation: {
-          open: 'animated noty_effects_open', // Animate.css class names
-          close: 'animated noty_effects_close' // Animate.css class names
+          open: 'noty_effects_open', 
+          close: 'noty_effects_close'
       },
       timeout:400,
       layout:'topRight',
-      type:type
-      
+      type
     }).show();
     
   }

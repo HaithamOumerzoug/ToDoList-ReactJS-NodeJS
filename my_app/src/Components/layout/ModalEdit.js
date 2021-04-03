@@ -7,7 +7,7 @@ export default function ModalEdit(props) {
     const {localtitle,localdescription,errors}=props.state;
     
     const CheckandSave=(e)=>{
-      props.onSubmit(e);
+      props.Submit(e);
       props.onHide(); 
     }
     return (

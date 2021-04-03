@@ -19,7 +19,7 @@ const  ModalApp=(props)=>{
             <ModalEdit
                 show={modalShow}
                 onHide={() => setModalShow(false)}
-                onSubmit={props.onSubmit}
+                Submit={props.onSubmit}
                 onChange={props.onChange}
                 state={props.state}
             />
