@@ -1,7 +1,7 @@
 //Get all ToDo lists
 export const getListes=()=>dispatch=>{
 
-    fetch('/alllists').then(res =>res.json())
+    fetch('/api/alllists').then(res =>res.json())
         .then(json => {
             dispatch({
                 type:"GET_ALL_LISTS",
@@ -14,7 +14,7 @@ export const getListes=()=>dispatch=>{
 export const addListe=(newListe)=>dispatch=>{
     const newListe_json = JSON.stringify(newListe)
 
-    fetch('/addlist',{
+    fetch('/api/addlist',{
         method:'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -33,7 +33,7 @@ export const addListe=(newListe)=>dispatch=>{
 //Make the list done
 export const onChangeCheck=(id)=>dispatch=>{
 
-    fetch(`/changecheck/${id}`,{
+    fetch(`/api/changecheck/${id}`,{
         method:'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ export const onChangeCheck=(id)=>dispatch=>{
 export const updateList=(list)=>dispatch=>{
     const newListe_json = JSON.stringify(list)
     const id = list._id;
-    fetch(`/${id}`,{
+    fetch(`/api/${id}`,{
         method:'PUT',
         headers: {
             'Content-Type': 'application/json'
@@ -68,7 +68,7 @@ export const updateList=(list)=>dispatch=>{
 
 //Delete ToDo list by ID
 export const deletelist=(id)=>dispatch=>{
-    fetch(`/${id}`,{
+    fetch(`/api/${id}`,{
         method:'DELETE',
         headers: {
             'Content-Type': 'application/json'
