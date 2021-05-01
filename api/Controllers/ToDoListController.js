@@ -3,6 +3,9 @@ const ToDoList=require('../models/ToDoList')
 exports.home=(req,res)=>{
     res.send("Hello!");
 }
+/**
+ * Get all lists 
+ */
 exports.getAll=async (req,res)=>{
     try {
         const lists = await ToDoList.find({}).sort({createdAt:-1})//Get lists order by Creation date
@@ -11,6 +14,9 @@ exports.getAll=async (req,res)=>{
         res.send("Erreur").status(400)
     }    
 }
+/**
+ * Get list by Id
+ */
 exports.getList=async (req,res)=>{
     try {
         const list = await ToDoList.findById(req.params.id);
@@ -19,6 +25,9 @@ exports.getList=async (req,res)=>{
         res.send("Not Found!").status(404);
     }
 }
+/**
+ * Add list
+ */
 exports.addList=async (req,res)=>{
     const todolist = new ToDoList(req.body);
     try {
@@ -29,6 +38,9 @@ exports.addList=async (req,res)=>{
     }
 }
 
+/**
+ * Update list
+ */
 exports.updateList=async (req,res)=>{
     try {
         const uplist = await ToDoList.findByIdAndUpdate(req.params.id,req.body,{new:true})
@@ -37,7 +49,9 @@ exports.updateList=async (req,res)=>{
         res.send('Les informations sont invalide').status(400);
     }
 }
-
+/**
+ * Delete list
+ */
 exports.deleteList=async (req,res)=>{
     try {
         const oldlist =await ToDoList.findByIdAndDelete(req.params.id)
@@ -46,6 +60,10 @@ exports.deleteList=async (req,res)=>{
         res.send('Not Found').status(404);
     }
 }
+
+/**
+ * Make the list Done
+ */
 exports.changecheck=async (req,res)=>{
     try {
         const newlist =await ToDoList.findById(req.params.id)

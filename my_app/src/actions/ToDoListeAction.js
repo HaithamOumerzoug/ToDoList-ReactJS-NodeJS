@@ -1,4 +1,6 @@
-//Get all ToDo lists
+/*
+ *Get all ToDo lists
+ */
 export const getListes=()=>dispatch=>{
 
     fetch('/api/alllists').then(res =>res.json())
@@ -9,8 +11,9 @@ export const getListes=()=>dispatch=>{
         })
     })
 }
-
-//Add ToDo List
+/*
+ *Add ToDo List
+ */
 export const addListe=(newListe)=>dispatch=>{
     const newListe_json = JSON.stringify(newListe)
 
@@ -30,7 +33,9 @@ export const addListe=(newListe)=>dispatch=>{
         })
 }
 
-//Make the list done
+/*
+ *Make the list done
+ */
 export const onChangeCheck=(id)=>dispatch=>{
 
     fetch(`/api/changecheck/${id}`,{
@@ -47,7 +52,9 @@ export const onChangeCheck=(id)=>dispatch=>{
         })
 }
 
-//Update ToDo list
+/*
+ * Update ToDo list
+ */
 export const updateList=(list)=>dispatch=>{
     const newListe_json = JSON.stringify(list)
     const id = list._id;
@@ -66,7 +73,9 @@ export const updateList=(list)=>dispatch=>{
         })
 }
 
-//Delete ToDo list by ID
+/*
+ *Delete ToDo list by ID
+ */
 export const deletelist=(id)=>dispatch=>{
     fetch(`/api/${id}`,{
         method:'DELETE',
