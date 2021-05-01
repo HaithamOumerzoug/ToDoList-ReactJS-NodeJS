@@ -8,7 +8,9 @@ const morgan = require('morgan');
 const routefile = require('./routes/web');
 const expressValidator = require('express-validator');
 
-//Connection db
+/**
+ * Connection db
+ */
 mongoose.connect(
     process.env.DATABASE,{
     useCreateIndex:true,
@@ -16,10 +18,12 @@ mongoose.connect(
     useNewUrlParser:true,
     useFindAndModify: false
 })
-.then(console.log("Connection DATABASE OK ..."))
+.then(console.log("Connection DATABASE ..."))
 .catch((err)=>console.log("Connection Feiled !"))
 
-//Middlewares
+/**
+ * Middlewares
+ */
 app.use(express.json());
 app.use(helmet());
 app.use(morgan('tiny'));
@@ -27,7 +31,9 @@ app.use(expressValidator());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
-//Routes
+/**
+ * Routes
+ */
 app.use('/',routefile);
 
 
