@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import ToDoList from './ToDoList'
-import {connect} from 'react-redux'
-import {getListes} from '../actions/ToDoListeAction'
+import React, { Component } from 'react';
+import ToDoList from './ToDoList';
+import {connect} from 'react-redux';
+import {getListes} from '../actions/ToDoListeAction';
 
 class ToDoListes extends Component {
     componentDidMount(){

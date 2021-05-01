@@ -1,4 +1,4 @@
-const ToDoList=require('../models/ToDoList')
+const ToDoList=require('../models/ToDoList');
 
 exports.home=(req,res)=>{
     res.send("Hello!");
@@ -11,7 +11,7 @@ exports.getAll=async (req,res)=>{
         const lists = await ToDoList.find({}).sort({createdAt:-1})//Get lists order by Creation date
         res.send(lists);
     } catch (err) {
-        res.send("Erreur").status(400)
+        res.send("Erreur").status(400);
     }    
 }
 /**
@@ -72,6 +72,6 @@ exports.changecheck=async (req,res)=>{
         const resultat=await newlist.save();
         res.send(resultat)
     } catch (err) {
-        res.status(400).send('Bad request')
+        res.status(400).send('Bad request');
     }
 }

@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 
+/**
+ * ToDo list Schema
+ */
 const ToDoShema=mongoose.Schema({
     title:{
         type:String,

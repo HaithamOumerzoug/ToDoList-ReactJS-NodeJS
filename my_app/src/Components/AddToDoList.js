@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import InputToDoList from './layout/InputToDoList'
-import {connect} from 'react-redux'
-import {addListe} from '../actions/ToDoListeAction'
-import Textarea from './layout/Textarea'
+import React, { Component } from 'react';
+import InputToDoList from './layout/InputToDoList';
+import {connect} from 'react-redux';
+import {addListe} from '../actions/ToDoListeAction';
+import Textarea from './layout/Textarea';
 
 class AddToDoList extends Component {
     state={
@@ -80,7 +80,7 @@ class AddToDoList extends Component {
                         </div>
                     </div>
                 : <div className="d-flex justify-content-end">
-                    <input type="button" onClick={this.show_hide} className="btn btn-primary " value="Add more liste"/>
+                    <input type="button" onClick={this.show_hide} className="btn btn-primary " value="Add more list"/>
                 </div>)}
         </div>
 

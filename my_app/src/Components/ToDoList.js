@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import {connect} from 'react-redux'
-import {onChangeCheck,deletelist} from '../actions/ToDoListeAction'
-import {updateList} from '../actions/ToDoListeAction'
-import ModalApp from './ModalApp'
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import {onChangeCheck,deletelist} from '../actions/ToDoListeAction';
+import {updateList} from '../actions/ToDoListeAction';
+import ModalApp from './ModalApp';
 import Noty from 'noty';
 
 import "../../node_modules/noty/lib/themes/mint.css";  
@@ -59,7 +59,9 @@ class ToDoList extends Component {
     this.vide_errros()
     
   }
-  //Notification function
+  /*
+   *Notification function
+   */
   notify=(text,type)=>{
     new Noty({
       text,
@@ -73,7 +75,9 @@ class ToDoList extends Component {
     }).show();
     
   }
-  //On delete function
+  /**
+   * On delete function
+   */
   onDeletelist=(id)=>{
     this.props.deletelist(id);
     this.notify("List deleted !","success");
