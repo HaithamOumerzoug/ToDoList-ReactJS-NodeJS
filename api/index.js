@@ -35,7 +35,7 @@ app.use(bodyParser.json());
 /**
  * Routes
  */
-app.use('/',routefile);
+app.use('/api',routefile);
 
 
 const port =process.env.PORT;
