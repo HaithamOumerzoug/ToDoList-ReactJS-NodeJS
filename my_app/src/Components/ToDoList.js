@@ -39,19 +39,18 @@ class ToDoList extends Component {
       this.setState({
           errors:{title:"Title is required!"}
       })
-      
       return
     }
     if(localdescription===""){
-        this.setState({
-            errors:{description:"Desciption is required!"}
-        })
-        return
+      this.setState({
+          errors:{description:"Desciption is required!"}
+      })
+      return
     }
     const newListe={
-        _id,
-        title:localtitle,
-        description:localdescription,
+      _id,
+      title:localtitle,
+      description:localdescription,
     }
     this.props.updateList(newListe)
     this.notify("List updated !","warning");
